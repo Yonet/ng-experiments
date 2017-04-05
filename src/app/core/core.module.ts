@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
+import { DetectorService } from './detector.service';
 /**
  * Consider collecting numerous, auxiliary, single-use classes inside a core module to simplify the apparent structure of a feature module.
  * Do put a singleton service whose instance will be shared throughout the application in the CoreModule (e.g. ExceptionService and LoggerService).
@@ -17,8 +20,17 @@ import { CommonModule } from '@angular/common';
  */
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    HttpModule,
   ],
-  declarations: []
+  exports: [
+    FormsModule,
+    HttpModule,
+  ],
+  declarations: [],
+  providers: [
+    DetectorService,
+  ]
 })
 export class CoreModule { }
